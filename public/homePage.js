@@ -32,7 +32,7 @@ moneyManager.addMoneyCallback = (data) => {
     if (response.success === true) {
       ProfileWidget.showProfile(response.data);
     }
-    moneyManager.setMessage(response.success, response.error);
+    moneyManager.setMessage(response.success, response.error = `Баланс пополнен.`);
   });
 };
 moneyManager.conversionMoneyCallback = (data) => {
@@ -40,7 +40,7 @@ moneyManager.conversionMoneyCallback = (data) => {
     if (response.success === true) {
       ProfileWidget.showProfile(response.data);
     }
-    moneyManager.setMessage(response.success, response.error);
+    moneyManager.setMessage(response.success, response.error = `Конвертирование прошло успешно.`);
   });
 };
 moneyManager.sendMoneyCallback = (data) => {
@@ -48,7 +48,7 @@ moneyManager.sendMoneyCallback = (data) => {
     if (response.success === true) {
       ProfileWidget.showProfile(response.data);
     }
-    moneyManager.setMessage(response.success, response.error);
+    moneyManager.setMessage(response.success, response.error = `Перевод прошел успешно.`);
   });
 };
 
@@ -68,7 +68,7 @@ favorites.addUserCallback = (data) => {
       favorites.fillTable(response.data);
       moneyManager.updateUsersList(response.data);
     }
-    favorites.setMessage(response.success, response.error);
+    favorites.setMessage(response.success, response.error = `Пользователь добавлен в избранное.`);
   });
 };
 favorites.removeUserCallback = (data) => {
@@ -78,6 +78,6 @@ favorites.removeUserCallback = (data) => {
       favorites.fillTable(response.data);
       moneyManager.updateUsersList(response.data);
     }
-    favorites.setMessage(response.success, response.error);
+    favorites.setMessage(response.success, response.error = `Пользователь удален из избранного.`);
   });
 };
