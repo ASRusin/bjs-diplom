@@ -31,24 +31,27 @@ moneyManager.addMoneyCallback = (data) => {
   ApiConnector.addMoney(data, (response) => {
     if (response.success === true) {
       ProfileWidget.showProfile(response.data);
+      response.error = `Баланс пополнен.`
     }
-    moneyManager.setMessage(response.success, response.error = `Баланс пополнен.`);
+    moneyManager.setMessage(response.success, response.error);
   });
 };
 moneyManager.conversionMoneyCallback = (data) => {
   ApiConnector.convertMoney(data, (response) => {
     if (response.success === true) {
       ProfileWidget.showProfile(response.data);
+      response.error = `Конвертирование прошло успешно.`
     }
-    moneyManager.setMessage(response.success, response.error = `Конвертирование прошло успешно.`);
+    moneyManager.setMessage(response.success, response.error);
   });
 };
 moneyManager.sendMoneyCallback = (data) => {
   ApiConnector.transferMoney(data, (response) => {
     if (response.success === true) {
       ProfileWidget.showProfile(response.data);
+      response.error = `Перевод прошел успешно.`
     }
-    moneyManager.setMessage(response.success, response.error = `Перевод прошел успешно.`);
+    moneyManager.setMessage(response.success, response.error);
   });
 };
 
@@ -67,8 +70,9 @@ favorites.addUserCallback = (data) => {
       favorites.clearTable();
       favorites.fillTable(response.data);
       moneyManager.updateUsersList(response.data);
+      response.error = `Пользователь успешно добавлен`
     }
-    favorites.setMessage(response.success, response.error = `Пользователь добавлен в избранное.`);
+    favorites.setMessage(response.success, response.error);
   });
 };
 favorites.removeUserCallback = (data) => {
@@ -77,7 +81,8 @@ favorites.removeUserCallback = (data) => {
       favorites.clearTable();
       favorites.fillTable(response.data);
       moneyManager.updateUsersList(response.data);
+      response.error =`Пользователь удален из избранного.`
     }
-    favorites.setMessage(response.success, response.error = `Пользователь удален из избранного.`);
+    favorites.setMessage(response.success, response.error);
   });
 };
